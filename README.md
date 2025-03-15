@@ -39,8 +39,7 @@ The project is divided into several phases:
   - The dashboard shows live fraud monitoring, transaction heatmaps, and alert logs.
 
 ## Project Structure
-
-
+```
 project-root/
 ├── backend/
 │   ├── fraud_api.py          # Phase 2 & Phase 5 backend API (FastAPI)
