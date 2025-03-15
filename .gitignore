@@ -1,2 +1,7 @@
 /synthetic_transactions.csv
 /venv
+node_modules
+/__pycache__
+/finbert-finetuned
+/frontend/.next
+/backend/__pycache__
