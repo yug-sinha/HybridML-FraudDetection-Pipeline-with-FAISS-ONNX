@@ -1,7 +1,3 @@
-Below is an example README.md that summarizes the entire project, describes each phase, explains the project structure, lists dependencies, and provides instructions for setup, development, and testing.
-
----
-
 ```markdown
 # Fraud Detection & Monitoring System
 
