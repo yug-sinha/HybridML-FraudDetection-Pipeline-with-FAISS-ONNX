@@ -1,5 +1,7 @@
 # Fraud Detection & Monitoring System
 
+NOTE: CARD NOT ELIGIBLE FOR AWS/AZURE/GCP INTERNATIONAL TRANSACTIONS, THUS FREE TIER ACCESS DENIED
+
 This project is an end-to-end fraud detection and monitoring system built as a multi-phase prototype. It demonstrates advanced data simulation, feature engineering, hybrid model integration, distributed vector search, real-time alerting, explainable AI, and enterprise-grade security & compliance—all integrated into a full-stack solution with a frontend dashboard.
 
 ## Overview
