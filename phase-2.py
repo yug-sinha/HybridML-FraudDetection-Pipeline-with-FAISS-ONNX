@@ -16,9 +16,6 @@ import h5py
 # For ONNX export:
 import torch.onnx
 
-# For T5 summarization:
-from transformers import pipeline as t5_pipeline
-
 # For scikit-learn:
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
@@ -39,22 +36,25 @@ data = {
 }
 dataset = Dataset.from_dict(data)
 
-# Load tokenizer and model (use a FinBERT variant if available)
-import os
-os.environ.pop("HF_HUB_TOKEN", None)  # Remove any token from the environment
+# Remove any token from the environment
+os.environ.pop("HF_HUB_TOKEN", None)
 
 from transformers import AutoTokenizer, BertForSequenceClassification
 
-# Load tokenizer with use_auth_token=False (this is deprecated in v5 but still works in v4)
-tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased",
-                                            cache_dir="/tmp/huggingface_cache",
-                                            use_auth_token=False)
+# Load tokenizer with token=None
+tokenizer = AutoTokenizer.from_pretrained(
+    "bert-base-uncased",
+    cache_dir="/tmp/huggingface_cache",
+    token=None
+)
 
-# Load model with use_auth_token=False
-model = BertForSequenceClassification.from_pretrained("bert-base-uncased",
-                                                        num_labels=2,
-                                                        cache_dir="/tmp/huggingface_cache",
-                                                        use_auth_token=False)
+# Load model with token=None
+model = BertForSequenceClassification.from_pretrained(
+    "bert-base-uncased",
+    num_labels=2,
+    cache_dir="/tmp/huggingface_cache",
+    token=None
+)
 
 def tokenize_function(examples):
     return tokenizer(examples["text"], truncation=True, padding="max_length", max_length=128)
@@ -70,6 +70,7 @@ training_args = TrainingArguments(
     save_steps=10,
 )
 
+from transformers import Trainer
 trainer = Trainer(
     model=model,
     args=training_args,
@@ -85,8 +86,16 @@ print("FinBERT fine-tuning complete.")
 # Section B: Generate Transaction Embeddings via Contrastive Learning (SimCSE-like)
 # -------------------------------
 # Here we simulate SimCSE by performing a forward pass with a pretrained model.
-model_simcse = AutoModel.from_pretrained("bert-base-uncased")
-tokenizer_simcse = AutoTokenizer.from_pretrained("bert-base-uncased")
+model_simcse = AutoModel.from_pretrained(
+    "bert-base-uncased",
+    cache_dir="/tmp/huggingface_cache",
+    token=None
+)
+tokenizer_simcse = AutoTokenizer.from_pretrained(
+    "bert-base-uncased",
+    cache_dir="/tmp/huggingface_cache",
+    token=None
+)
 
 # Dummy transaction texts for embedding extraction
 transaction_texts = [
@@ -137,7 +146,23 @@ def finbert_categorize_merchant(text):
     return category
 
 # 2. T5-based Transaction Summarization
-summarizer = t5_pipeline("summarization", model="t5-small")
+from transformers import AutoModelForSeq2SeqLM
+
+# Load T5 model and tokenizer using use_auth_token=False
+t5_model = AutoModelForSeq2SeqLM.from_pretrained(
+    "t5-small",
+    cache_dir="/tmp/huggingface_cache",
+    use_auth_token=False
+)
+t5_tokenizer = AutoTokenizer.from_pretrained(
+    "t5-small",
+    cache_dir="/tmp/huggingface_cache",
+    use_auth_token=False
+)
+
+# Create a summarization pipeline using the pre-loaded objects
+summarizer = pipeline("summarization", model=t5_model, tokenizer=t5_tokenizer)
+
 def summarize_transaction(transaction_text):
     summary = summarizer(transaction_text, max_length=50, min_length=10, do_sample=False)
     return summary[0]['summary_text']
