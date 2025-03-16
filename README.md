@@ -40,31 +40,6 @@ The project is divided into several phases:
   - Expose both REST and GraphQL endpoints for real-time fraud detection.
   - The dashboard shows live fraud monitoring, transaction heatmaps, and alert logs.
 
-## Project Structure
-```
-project-root/
-├── backend/
-│   ├── fraud_api.py          # Phase 2 & Phase 5 backend API (FastAPI)
-│   ├── phase-6.py            # Enterprise-grade security & compliance (OAuth2, AES-256, audit logs)
-│   └── requirements.txt      # Python dependencies for backend
-├── frontend/
-│   ├── package.json          # Node.js dependencies & scripts for Next.js dashboard
-│   ├── next.config.js        # Next.js configuration (if needed)
-│   ├── tailwind.config.js    # Tailwind CSS configuration
-│   ├── postcss.config.js     # PostCSS configuration for Tailwind
-│   ├── pages/
-│   │   └── index.js          # Main dashboard page
-│   ├── components/           # Reusable React components (if any)
-│   ├── public/               # Static assets (images, fonts, etc.)
-│   └── styles/
-│       └── globals.css       # Global CSS (includes Tailwind directives)
-├── phase-1-2.py              # Data simulation & multi-modal feature engineering
-├── phase-3.py                # Distributed vector search & real-time detection
-├── phase-4.py                # Full pipeline & rule-based anomaly detection with XAI
-├── phase-5.py                # Real-time monitoring & alert system
-├── README.md                 # This documentation file
-└── venv/                     # Python virtual environment
-```
 
 ## Setup Instructions
 
