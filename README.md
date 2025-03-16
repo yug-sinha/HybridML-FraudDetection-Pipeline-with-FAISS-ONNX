@@ -1,6 +1,6 @@
 # Fraud Detection & Monitoring System
 
-Deployment Link : https://fraud-detection-pipeline.vercel.app/
+Deployment Link : https://hybrid-ml-fraud-detection-pipeline-with-faiss-onnx.vercel.app/
 
 This project is an end-to-end fraud detection and monitoring system built as a multi-phase prototype. It demonstrates advanced data simulation, feature engineering, hybrid model integration, distributed vector search, real-time alerting, explainable AI, and enterprise-grade security & compliance—all integrated into a full-stack solution with a frontend dashboard.
 
