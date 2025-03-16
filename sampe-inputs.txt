@@ -8,3 +8,8 @@ Subscription renewal at MediaStream for $9.99 on 2023-09-05.
 ATM withdrawal from City Bank for $200 on 2023-10-12.
 International transfer to EuroBank for €1500 on 2023-11-20.
 Payment at FastFood Express for $8.45 on 2023-12-31.
+Suspicious transaction at Unknown Vendor for $9999 on 2023-03-15.
+Multiple high-value transfers detected from Account 12345678 totaling $15000 on 2023-04-10.
+Rapid ATM withdrawals exceeding $2000 within 10 minutes at an unverified location on 2023-05-05.
+Unusual payment to a non-registered merchant for $8000 on 2023-06-22.
+Overseas transfer from a flagged account for $12000 on 2023-07-04.
