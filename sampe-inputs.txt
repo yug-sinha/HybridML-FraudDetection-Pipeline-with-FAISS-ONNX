@@ -1,0 +1,10 @@
+Transaction at Acme Corp for $100.50 on 2023-03-15.
+Refund processed at Retailer Inc. on 2023-04-02 for $35.20.
+Payment to Global Bank of $2300 flagged as suspicious on 2023-05-10.
+Large transaction at Tech Inc. for $5000 on 2023-06-18.
+Small purchase at Corner Shop for $15 on 2023-07-22.
+Online order at E-Shop Central for $250.75 on 2023-08-03.
+Subscription renewal at MediaStream for $9.99 on 2023-09-05.
+ATM withdrawal from City Bank for $200 on 2023-10-12.
+International transfer to EuroBank for €1500 on 2023-11-20.
+Payment at FastFood Express for $8.45 on 2023-12-31.
