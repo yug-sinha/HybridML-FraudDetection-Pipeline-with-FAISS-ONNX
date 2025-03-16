@@ -19,8 +19,9 @@ export default function Home() {
   // Call REST API to detect fraud
   const detectFraud = async () => {
     try {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL;
       const res = await fetch(
-        `http://localhost:8002/detect_fraud?transaction=${encodeURIComponent(
+        `${API_URL}/detect_fraud?transaction=${encodeURIComponent(
           transaction
         )}`
       );
@@ -34,7 +35,7 @@ export default function Home() {
       console.error("Error calling API:", err);
     }
   };
-
+  
   return (
     <div className="min-h-screen p-6 bg-gray-100">
       <h1 className="text-3xl font-bold text-center mb-4">
